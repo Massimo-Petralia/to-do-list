@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Item } from 'src/app/models/item';
 import { DataService } from 'src/app/service/data.service';
-import { Subscription, catchError, map, tap } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-page',
