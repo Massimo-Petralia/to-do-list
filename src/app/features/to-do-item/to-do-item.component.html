@@ -1,0 +1,34 @@
+<div *ngIf="item">
+  <form class="to-do-item" action="" [formGroup]="form">
+    <div class="to-do-item__form-item">
+      <label for="task">task: </label>
+      <input
+        id="task"
+        type="text"
+        formControlName="task"
+        [ngClass]="{ 'text-line-through': form.controls.check.value }"
+      />
+    </div>
+    <div class="to-do-item__form-item">
+      <label for="description">description: </label>
+      <input
+        id="description"
+        type="text"
+        formControlName="description"
+        [ngClass]="{ 'text-line-through': form.controls.check.value }"
+      />
+      <input
+        style="width: 10px"
+        type="checkbox"
+        formControlName="check"
+        (click)="onCheck()"
+      />
+    </div>
+    <div class="to-do-item__form-item">
+      <div>
+        <button (click)="onSave()">Salva</button>
+        <button (click)="onDelete()">Elimina</button>
+      </div>
+    </div>
+  </form>
+</div>

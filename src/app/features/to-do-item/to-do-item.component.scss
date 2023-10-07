@@ -1,0 +1,15 @@
+.to-do-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &__form-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+.text-line-through {
+  text-decoration-line: line-through;
+}

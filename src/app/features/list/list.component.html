@@ -1,0 +1,11 @@
+<app-to-do-item
+  class="list__to-do-item"
+  *ngFor="let item of items"
+  [item]="item"
+  (delete)="onDelete($event)"
+  (update)="onUpdate($event)"
+  (check)="onCheck($event)"
+></app-to-do-item>
+<div >
+  <button (click)="sortList()">sort</button>
+</div>

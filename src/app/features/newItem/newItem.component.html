@@ -1,0 +1,7 @@
+<form action="" [formGroup]="form">
+  <label for="task">task: </label>
+  <input id="task" type="text" formControlName="task" />
+  <label for="description">description: </label>
+  <input id="description" type="text" formControlName="description" />
+  <button (click)="onCreate()">aggiungi alla lista</button>
+</form>

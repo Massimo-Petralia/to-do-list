@@ -1,0 +1,8 @@
+<list
+  style="display: block"
+  [items]="items"
+  (delete)="onDelete($event)"
+  (update)="onUpdate($event)"
+  (check)="onCheck($event)"
+></list>
+<app-newItem class="new-item" (create)="onAdd($event)"></app-newItem>

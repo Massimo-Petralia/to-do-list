@@ -1,0 +1,12 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__to-do-item {
+    display: block;
+  }
+}
+.listControls {
+  margin: 40px;
+}
