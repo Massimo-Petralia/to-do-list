@@ -25,6 +25,8 @@ export class CanvasComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     const canvas = this.canvasElement.nativeElement;
     const context: CanvasRenderingContext2D | null = canvas.getContext('2d');
+    context!.imageSmoothingEnabled = true;
+    context!.strokeStyle = "#1E90FF"
     const img = new Image();
     if (this.savedImageDataUrl) {
       img.src = this.savedImageDataUrl;
@@ -59,8 +61,10 @@ export class CanvasComponent implements AfterViewInit {
       });
     }
   }
-  clearCanvas(){
-    const canvas = this.canvasElement.nativeElement
-    this.canvasElement.nativeElement.getContext('2d')?.clearRect(0, 0, canvas.width, canvas.height)
+  clearCanvas() {
+    const canvas = this.canvasElement.nativeElement;
+    this.canvasElement.nativeElement
+      .getContext('2d')
+      ?.clearRect(0, 0, canvas.width, canvas.height);
   }
 }
