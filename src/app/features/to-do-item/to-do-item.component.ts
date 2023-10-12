@@ -6,7 +6,7 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Item } from 'src/app/models/item';
 
 @Component({
@@ -15,7 +15,7 @@ import { Item } from 'src/app/models/item';
   styleUrls: ['./to-do-item.component.scss'],
 })
 export class ToDoItemComponent implements OnChanges {
-  @Input() item?: Item;
+  @Input() item?: Item = {};
 
   @Output() update = new EventEmitter<Item>();
 
@@ -23,11 +23,16 @@ export class ToDoItemComponent implements OnChanges {
 
   @Output() delete = new EventEmitter<number | string | null>();
 
+  save = new EventEmitter<any>();
+
+  @Output() itemImage = new EventEmitter<Item>();
+
   form = this.fb.group({
     task: this.fb.control<string>(''),
     description: this.fb.control<string>(''),
     check: this.fb.control<boolean>(false),
     id: this.fb.control<number | string | null>(null),
+    date: this.fb.control<string>('', Validators.required),
   });
 
   constructor(private fb: FormBuilder) {}
@@ -41,16 +46,22 @@ export class ToDoItemComponent implements OnChanges {
   }
 
   onCheck() {
-    this.form.patchValue({check: !this.form.value.check})
+    this.form.patchValue({ check: !this.form.value.check });
 
     this.check.emit(this.form.value);
   }
 
   onSave() {
     this.update.emit(this.form.value);
+    this.save.emit();
   }
 
   onDelete() {
     this.delete.emit(this.form.value.id);
+  }
+
+  getImageData(imageDataUrl: string) {
+    debugger;
+    this.itemImage.emit({ ...this.item, imageDataUrl });
   }
 }

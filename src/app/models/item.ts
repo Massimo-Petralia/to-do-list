@@ -3,4 +3,7 @@ export interface Item {
   description?: string | null;
   check?: boolean | null;
   id?: number | string | null;
+  date?: string | null;
+  imageDataUrl?: string
 }
+

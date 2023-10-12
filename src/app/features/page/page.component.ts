@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { Item } from 'src/app/models/item';
 import { DataService } from 'src/app/service/data.service';
 import { Subscription } from 'rxjs';
@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './page.component.html',
   styleUrls: ['./page.component.scss'],
 })
-export class PageComponent implements OnInit, OnDestroy {
+export class PageComponent implements OnInit, OnDestroy, AfterViewInit {
   items: Item[] = [];
 
   subs = new Subscription();
@@ -20,6 +20,7 @@ export class PageComponent implements OnInit, OnDestroy {
       this.dataService.getItems().subscribe((items) => (this.items = items))
     );
   }
+  ngAfterViewInit(): void {}
 
   onAdd(data: Item) {
     this.subs.add(
@@ -55,6 +56,23 @@ export class PageComponent implements OnInit, OnDestroy {
       this.dataService.delete(id).subscribe(() => {
         this.items = this.items.filter((elem) => elem.id !== id);
       })
+    );
+  }
+
+  onImageItem(imageItem: Item) {
+    let propertyToChange: Partial<Item> = {
+      imageDataUrl: imageItem.imageDataUrl,
+    };
+    this.subs.add(
+      this.dataService
+        .UpdateImage(imageItem, propertyToChange)
+        .subscribe((item) => {
+          this.items = this.items.map((data) =>
+            data.imageDataUrl !== item.imageDataUrl && data.id === item.id
+              ? item
+              : data
+          );
+        })
     );
   }
 

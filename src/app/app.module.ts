@@ -9,6 +9,7 @@ import { ListComponent } from './features/list/list.component';
 import { ItemComponent } from './features/newItem/newItem.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToDoItemComponent } from './features/to-do-item/to-do-item.component';
+import { CanvasComponent } from './features/canvas/canvas.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ToDoItemComponent } from './features/to-do-item/to-do-item.component';
     PageComponent,
     ListComponent,
     ItemComponent,
-    ToDoItemComponent
+    ToDoItemComponent,
+    CanvasComponent
     
   ],
   imports: [

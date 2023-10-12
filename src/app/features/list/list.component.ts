@@ -7,18 +7,19 @@ import { Item } from 'src/app/models/item';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent {
-
   @Input() items: Item[] = [];
 
-  @Output() delete = new EventEmitter<number|string | null>();
+  @Output() delete = new EventEmitter<number | string | null>();
 
   @Output() update = new EventEmitter<Item>();
-  
+
   @Output() check = new EventEmitter<Item>();
+
+  @Output() imageItem = new EventEmitter<Item>()
 
   constructor() {}
 
-  onDelete(id: number|string | null) {
+  onDelete(id: number | string | null) {
     this.delete.emit(id);
   }
   onUpdate(item: Item) {
@@ -27,7 +28,11 @@ export class ListComponent {
 
   onCheck(item: Item) {
     this.check.emit(item);
-  }
+  };
+
+   getImageData(imageItem: Item){
+    this.imageItem.emit(imageItem)
+   }
 
   sortList() {
     this.items = this.items.sort((a, b) => {

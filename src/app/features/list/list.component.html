@@ -5,7 +5,10 @@
   (delete)="onDelete($event)"
   (update)="onUpdate($event)"
   (check)="onCheck($event)"
-></app-to-do-item>
-<div >
+  (itemImage)="getImageData($event)"
+>
+</app-to-do-item>
+
+<div>
   <button (click)="sortList()">sort</button>
 </div>

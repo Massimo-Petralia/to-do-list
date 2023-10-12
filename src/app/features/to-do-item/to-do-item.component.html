@@ -17,12 +17,15 @@
         formControlName="description"
         [ngClass]="{ 'text-line-through': form.controls.check.value }"
       />
+      <label for="date">date: </label>
+      <input type="date" id="date" formControlName="date">
       <input
         style="width: 10px"
         type="checkbox"
         formControlName="check"
         (click)="onCheck()"
       />
+    <app-canvas [save$]="save" [savedImageDataUrl]="item.imageDataUrl" (imageDataUrl)="getImageData($event)"></app-canvas>
     </div>
     <div class="to-do-item__form-item">
       <div>
