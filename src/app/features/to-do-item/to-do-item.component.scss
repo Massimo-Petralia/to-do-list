@@ -8,6 +8,26 @@
     flex-direction: column;
     gap: 5px;
   }
+
+  .task-wrapper {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    padding: 3px;
+  }
+}
+
+.task {
+  flex-direction: row;
+  max-width: 600px;
+}
+input[type="text"] {
+  width: auto;
+}
+.arrow {
+  flex: 1;
+  flex-direction: row;
+  text-align: right;
 }
 
 .text-line-through {

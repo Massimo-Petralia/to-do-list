@@ -2,35 +2,47 @@
   <form class="to-do-item" action="" [formGroup]="form">
     <div class="to-do-item__form-item">
       <label for="task">task: </label>
-      <input
-        id="task"
-        type="text"
-        formControlName="task"
-        [ngClass]="{ 'text-line-through': form.controls.check.value }"
-      />
+      <div class="task-wrapper">
+        <input
+          class="task"
+          id="task"
+          type="text"
+          formControlName="task"
+          [ngClass]="{ 'text-line-through': form.controls.check.value }"
+        />
+        <input
+          style="width: 10px"
+          type="checkbox"
+          formControlName="check"
+          (click)="onCheck()"
+        />
+        <span class="arrow" (click)="toggleView()">></span>
+      </div>
     </div>
-    <div class="to-do-item__form-item">
-      <label for="description">description: </label>
-      <input
-        id="description"
-        type="text"
-        formControlName="description"
-        [ngClass]="{ 'text-line-through': form.controls.check.value }"
-      />
-      <label for="date">date: </label>
-      <input type="date" id="date" formControlName="date">
-      <input
-        style="width: 10px"
-        type="checkbox"
-        formControlName="check"
-        (click)="onCheck()"
-      />
-    <app-canvas [save$]="save" [savedImageDataUrl]="item.imageDataUrl" (imageDataUrl)="getImageData($event)"></app-canvas>
-    </div>
-    <div class="to-do-item__form-item">
-      <div>
-        <button (click)="onSave()">Salva</button>
-        <button (click)="onDelete()">Elimina</button>
+
+    <div *ngIf="showContent">
+      <div class="to-do-item__form-item">
+        <label for="description">description: </label>
+        <input
+          id="description"
+          type="text"
+          formControlName="description"
+          [ngClass]="{ 'text-line-through': form.controls.check.value }"
+        />
+        <label for="date">date: </label>
+        <input type="date" id="date" formControlName="date" />
+
+        <app-canvas
+          [save$]="save"
+          [savedImageDataUrl]="item.imageDataUrl"
+          (imageDataUrl)="getImageData($event)"
+        ></app-canvas>
+      </div>
+      <div class="to-do-item__form-item">
+        <div>
+          <button (click)="onSave()">Salva</button>
+          <button (click)="onDelete()">Elimina</button>
+        </div>
       </div>
     </div>
   </form>

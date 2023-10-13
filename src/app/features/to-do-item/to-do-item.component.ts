@@ -27,6 +27,13 @@ export class ToDoItemComponent implements OnChanges {
 
   @Output() itemImage = new EventEmitter<Item>();
 
+  showContent = false;
+
+  toggleView(){
+    this.showContent = !this.showContent;
+
+  }
+
   form = this.fb.group({
     task: this.fb.control<string>(''),
     description: this.fb.control<string>(''),
