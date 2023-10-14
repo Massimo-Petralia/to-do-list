@@ -14,16 +14,12 @@
     flex-direction: row;
     border: 1px solid black;
     padding: 3px;
+    margin-top: 4px;
+    margin-bottom: 4px;
   }
 }
 
-.task {
-  flex-direction: row;
-  max-width: 600px;
-}
-input[type="text"] {
-  width: auto;
-}
+
 .arrow {
   flex: 1;
   flex-direction: row;

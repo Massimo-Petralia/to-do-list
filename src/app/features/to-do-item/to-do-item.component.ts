@@ -29,9 +29,9 @@ export class ToDoItemComponent implements OnChanges {
 
   showContent = false;
 
+
   toggleView(){
     this.showContent = !this.showContent;
-
   }
 
   form = this.fb.group({

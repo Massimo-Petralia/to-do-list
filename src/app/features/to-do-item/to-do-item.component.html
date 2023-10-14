@@ -1,7 +1,6 @@
 <div *ngIf="item">
   <form class="to-do-item" action="" [formGroup]="form">
     <div class="to-do-item__form-item">
-      <label for="task">task: </label>
       <div class="task-wrapper">
         <input
           class="task"
@@ -16,7 +15,8 @@
           formControlName="check"
           (click)="onCheck()"
         />
-        <span class="arrow" (click)="toggleView()">></span>
+        <span class="arrow" (click)="toggleView()"> <span *ngIf="!showContent" class="rightArrow">&#9658;</span><span *ngIf="showContent" class="rightArrow">&#9660;</span></span>
+        
       </div>
     </div>
 
