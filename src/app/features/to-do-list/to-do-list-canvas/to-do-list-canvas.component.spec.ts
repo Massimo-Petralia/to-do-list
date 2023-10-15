@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListComponent } from './list.component';
+import { CanvasComponent } from './to-do-list-canvas.component';
 
-describe('ListComponent', () => {
-  let component: ListComponent;
-  let fixture: ComponentFixture<ListComponent>;
+describe('CanvasComponent', () => {
+  let component: CanvasComponent;
+  let fixture: ComponentFixture<CanvasComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ListComponent]
+      declarations: [CanvasComponent]
     });
-    fixture = TestBed.createComponent(ListComponent);
+    fixture = TestBed.createComponent(CanvasComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

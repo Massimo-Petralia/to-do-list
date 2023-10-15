@@ -3,8 +3,8 @@ import { Item } from 'src/app/models/item';
 
 @Component({
   selector: 'list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss'],
+  templateUrl: './to-do-list.component.html',
+  styleUrls: ['./to-do-list.component.scss'],
 })
 export class ListComponent {
   @Input() items: Item[] = [];
