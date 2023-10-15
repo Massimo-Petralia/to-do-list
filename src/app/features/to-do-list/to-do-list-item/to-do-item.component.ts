@@ -14,7 +14,7 @@ import { Item } from 'src/app/models/item';
   templateUrl: './to-do-item.component.html',
   styleUrls: ['./to-do-item.component.scss'],
 })
-export class ToDoItemComponent implements OnChanges {
+export class ToDoListItemComponent implements OnChanges {
   @Input() item?: Item = {};
 
   @Output() update = new EventEmitter<Item>();

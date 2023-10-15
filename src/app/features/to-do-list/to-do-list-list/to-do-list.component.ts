@@ -6,7 +6,7 @@ import { Item } from 'src/app/models/item';
   templateUrl: './to-do-list.component.html',
   styleUrls: ['./to-do-list.component.scss'],
 })
-export class ListComponent {
+export class ToDoListComponent {
   @Input() items: Item[] = [];
 
   @Output() delete = new EventEmitter<number | string | null>();

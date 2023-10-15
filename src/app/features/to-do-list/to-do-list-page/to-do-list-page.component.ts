@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './to-do-list-page.component.html',
   styleUrls: ['./to-do-list-page.component.scss'],
 })
-export class PageComponent implements OnInit, OnDestroy, AfterViewInit {
+export class ToDoListPageComponent implements OnInit, OnDestroy, AfterViewInit {
   items: Item[] = [];
 
   subs = new Subscription();

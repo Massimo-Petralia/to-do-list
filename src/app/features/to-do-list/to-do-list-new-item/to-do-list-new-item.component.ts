@@ -7,7 +7,7 @@ import { Item } from 'src/app/models/item';
   templateUrl: './to-do-list-new-item.component.html',
   styleUrls: ['./to-do-list-new-item.component.scss'],
 })
-export class NewItemComponent {
+export class ToDoListNewItemComponent {
   @Output() create = new EventEmitter<Item>();
 
   constructor(private fb: FormBuilder) {}
