@@ -4,11 +4,11 @@ import { DataService } from 'src/app/service/data.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-page',
-  templateUrl: './page.component.html',
-  styleUrls: ['./page.component.scss'],
+  selector: 'app-to-do-list-page',
+  templateUrl: './to-do-list-page.component.html',
+  styleUrls: ['./to-do-list-page.component.scss'],
 })
-export class PageComponent implements OnInit, OnDestroy, AfterViewInit {
+export class ToDoListPageComponent implements OnInit, OnDestroy, AfterViewInit {
   items: Item[] = [];
 
   subs = new Subscription();

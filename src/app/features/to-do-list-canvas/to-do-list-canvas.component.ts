@@ -9,11 +9,11 @@ import {
 } from '@angular/core';
 import { Observable } from 'rxjs';
 @Component({
-  selector: 'app-canvas',
-  templateUrl: './canvas.component.html',
-  styleUrls: ['./canvas.component.scss'],
+  selector: 'app-to-do-list-canvas',
+  templateUrl: './to-do-list-canvas.component.html',
+  styleUrls: ['./to-do-list-canvas.component.scss'],
 })
-export class CanvasComponent implements AfterViewInit {
+export class ToDoListCanvasComponent implements AfterViewInit {
   @ViewChild('canvas') canvasElement!: ElementRef<HTMLCanvasElement>;
 
   @Input() save$?: Observable<any>;

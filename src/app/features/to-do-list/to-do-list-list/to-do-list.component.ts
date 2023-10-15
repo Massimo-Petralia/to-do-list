@@ -2,11 +2,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Item } from 'src/app/models/item';
 
 @Component({
-  selector: 'list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss'],
+  selector: 'app-to-do-list',
+  templateUrl: './to-do-list.component.html',
+  styleUrls: ['./to-do-list.component.scss'],
 })
-export class ListComponent {
+export class ToDoListComponent {
   @Input() items: Item[] = [];
 
   @Output() delete = new EventEmitter<number | string | null>();

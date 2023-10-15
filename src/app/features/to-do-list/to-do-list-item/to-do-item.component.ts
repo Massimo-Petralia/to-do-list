@@ -10,11 +10,11 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Item } from 'src/app/models/item';
 
 @Component({
-  selector: 'app-to-do-item',
+  selector: 'app-to-do-list-item',
   templateUrl: './to-do-item.component.html',
   styleUrls: ['./to-do-item.component.scss'],
 })
-export class ToDoItemComponent implements OnChanges {
+export class ToDoListItemComponent implements OnChanges {
   @Input() item?: Item = {};
 
   @Output() update = new EventEmitter<Item>();
