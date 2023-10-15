@@ -1,9 +1,9 @@
-<list
+<app-to-do-list
   style="display: block"
   [items]="items"
   (delete)="onDelete($event)"
   (update)="onUpdate($event)"
   (check)="onCheck($event)"
   (imageItem)="onImageItem($event)"
-></list>
-<app-new-item class="new-item" (create)="onAdd($event)"></app-new-item>
+></app-to-do-list>
+<app-to-do-list-new-item class="new-item" (create)="onAdd($event)"></app-to-do-list-new-item>

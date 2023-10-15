@@ -3,7 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { Item } from 'src/app/models/item';
 
 @Component({
-  selector: 'app-new-item',
+  selector: 'app-to-do-list-new-item',
   templateUrl: './to-do-list-new-item.component.html',
   styleUrls: ['./to-do-list-new-item.component.scss'],
 })

@@ -4,7 +4,7 @@ import { DataService } from 'src/app/service/data.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-page',
+  selector: 'app-to-do-list-page',
   templateUrl: './to-do-list-page.component.html',
   styleUrls: ['./to-do-list-page.component.scss'],
 })

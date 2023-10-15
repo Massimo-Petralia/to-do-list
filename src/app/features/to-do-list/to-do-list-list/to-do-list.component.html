@@ -1,4 +1,4 @@
-<app-to-do-item
+<app-to-do-list-item
   class="list__to-do-item"
   *ngFor="let item of items"
   [item]="item"
@@ -7,7 +7,7 @@
   (check)="onCheck($event)"
   (itemImage)="getImageData($event)"
 >
-</app-to-do-item>
+</app-to-do-list-item>
 
 <div>
   <button (click)="sortList()">sort</button>

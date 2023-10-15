@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { Observable } from 'rxjs';
 @Component({
-  selector: 'app-canvas',
+  selector: 'app-to-do-list-canvas',
   templateUrl: './to-do-list-canvas.component.html',
   styleUrls: ['./to-do-list-canvas.component.scss'],
 })

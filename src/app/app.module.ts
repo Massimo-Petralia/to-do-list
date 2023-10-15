@@ -9,7 +9,7 @@ import { ToDoListComponent} from './features/to-do-list/to-do-list-list/to-do-li
 import { ToDoListNewItemComponent} from './features/to-do-list/to-do-list-new-item/to-do-list-new-item.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToDoListItemComponent } from './features/to-do-list/to-do-list-item/to-do-item.component';
-import { ToDoListCanvasComponent } from './features/to-do-list/to-do-list-canvas/to-do-list-canvas.component';
+import { ToDoListCanvasComponent } from './features/to-do-list-canvas/to-do-list-canvas.component';
 
 @NgModule({
   declarations: [
