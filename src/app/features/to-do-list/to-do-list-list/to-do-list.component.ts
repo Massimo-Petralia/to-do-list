@@ -15,8 +15,6 @@ export class ToDoListComponent {
 
   @Output() check = new EventEmitter<Item>();
 
-  @Output() imageItem = new EventEmitter<Item>()
-
   constructor() {}
 
   onDelete(id: number | string | null) {
@@ -28,12 +26,7 @@ export class ToDoListComponent {
 
   onCheck(item: Item) {
     this.check.emit(item);
-  };
-
-   getImageData(imageItem: Item){
-    this.imageItem.emit(imageItem)
-   }
-
+  }
   sortList() {
     this.items = this.items.sort((a, b) => {
       return a.check === b.check ? 0 : a.check === false ? -1 : 1;

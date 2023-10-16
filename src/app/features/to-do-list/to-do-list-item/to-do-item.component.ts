@@ -5,9 +5,11 @@ import {
   OnChanges,
   Output,
   SimpleChanges,
+  ViewChild,
 } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Item } from 'src/app/models/item';
+import { ToDoListCanvasComponent } from '../to-do-list-canvas/to-do-list-canvas.component';
 
 @Component({
   selector: 'app-to-do-list-item',
@@ -15,6 +17,8 @@ import { Item } from 'src/app/models/item';
   styleUrls: ['./to-do-item.component.scss'],
 })
 export class ToDoListItemComponent implements OnChanges {
+  @ViewChild(ToDoListCanvasComponent) canvasData?: ToDoListCanvasComponent;
+
   @Input() item?: Item = {};
 
   @Output() update = new EventEmitter<Item>();
@@ -23,14 +27,11 @@ export class ToDoListItemComponent implements OnChanges {
 
   @Output() delete = new EventEmitter<number | string | null>();
 
-  save = new EventEmitter<any>();
-
   @Output() itemImage = new EventEmitter<Item>();
 
   showContent = false;
 
-
-  toggleView(){
+  toggleView() {
     this.showContent = !this.showContent;
   }
 
@@ -59,16 +60,13 @@ export class ToDoListItemComponent implements OnChanges {
   }
 
   onSave() {
-    this.update.emit(this.form.value);
-    this.save.emit();
+    this.update.emit({
+      ...this.form.value,
+      imageDataUrl: this.canvasData?.imageDataUrl,
+    });
   }
 
   onDelete() {
     this.delete.emit(this.form.value.id);
-  }
-
-  getImageData(imageDataUrl: string) {
-    debugger;
-    this.itemImage.emit({ ...this.item, imageDataUrl });
   }
 }

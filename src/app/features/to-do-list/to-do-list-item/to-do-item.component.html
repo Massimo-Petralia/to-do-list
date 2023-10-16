@@ -15,8 +15,10 @@
           formControlName="check"
           (click)="onCheck()"
         />
-        <span class="arrow" (click)="toggleView()"> <span *ngIf="!showContent" class="rightArrow">&#9658;</span><span *ngIf="showContent" class="rightArrow">&#9660;</span></span>
-        
+        <span class="arrow" (click)="toggleView()">
+          <span *ngIf="!showContent" class="rightArrow">&#9658;</span
+          ><span *ngIf="showContent" class="rightArrow">&#9660;</span></span
+        >
       </div>
     </div>
 
@@ -33,10 +35,9 @@
         <input type="date" id="date" formControlName="date" />
 
         <app-to-do-list-canvas
-          [save$]="save"
-          [savedImageDataUrl]="item.imageDataUrl"
-          (imageDataUrl)="getImageData($event)"
+          [imageDataUrl]="item.imageDataUrl"
         ></app-to-do-list-canvas>
+        
       </div>
       <div class="to-do-item__form-item">
         <div>

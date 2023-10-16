@@ -55,15 +55,4 @@ export class DataService {
       })
     );
   }
-
-  UpdateImage(imageItem: Item, imageDataUrl: Partial<Item>): Observable<Item> {
-    return this.http
-      .patch<Item>(`${this.resourcesUrl}/${imageItem.id}`, imageDataUrl)
-      .pipe(
-        catchError((error) => {
-          console.log('path imageData error');
-          throw error;
-        })
-      );
-  }
 }

@@ -4,10 +4,7 @@ import {
   AfterViewInit,
   ViewChild,
   Input,
-  Output,
-  EventEmitter,
 } from '@angular/core';
-import { Observable } from 'rxjs';
 @Component({
   selector: 'app-to-do-list-canvas',
   templateUrl: './to-do-list-canvas.component.html',
@@ -16,20 +13,16 @@ import { Observable } from 'rxjs';
 export class ToDoListCanvasComponent implements AfterViewInit {
   @ViewChild('canvas') canvasElement!: ElementRef<HTMLCanvasElement>;
 
-  @Input() save$?: Observable<any>;
-
-  @Input() savedImageDataUrl?: string;
-
-  @Output() imageDataUrl = new EventEmitter<string>();
+  @Input() imageDataUrl?: string;
 
   ngAfterViewInit(): void {
     const canvas = this.canvasElement.nativeElement;
     const context: CanvasRenderingContext2D | null = canvas.getContext('2d');
     context!.imageSmoothingEnabled = true;
-    context!.strokeStyle = "#1E90FF"
+    context!.strokeStyle = '#1E90FF';
     const img = new Image();
-    if (this.savedImageDataUrl) {
-      img.src = this.savedImageDataUrl;
+    if (this.imageDataUrl) {
+      img.src = this.imageDataUrl;
       img.onload = () => {
         context?.drawImage(img, 0, 0);
         context?.stroke();
@@ -54,10 +47,7 @@ export class ToDoListCanvasComponent implements AfterViewInit {
       });
       canvas.addEventListener('mouseup', () => {
         isDrawing = false;
-      });
-      this.save$?.subscribe(() => {
-        const imageDataUrl = canvas.toDataURL('image/png');
-        this.imageDataUrl.emit(imageDataUrl);
+        this.imageDataUrl = canvas.toDataURL('image/png');
       });
     }
   }

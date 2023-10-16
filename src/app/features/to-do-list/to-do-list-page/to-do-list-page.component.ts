@@ -34,6 +34,7 @@ export class ToDoListPageComponent implements OnInit, OnDestroy, AfterViewInit {
     this.subs.add(
       this.dataService.update(item).subscribe((item) => {
         this.items.map((elem) => (elem.id !== item.id ? elem : item));
+        debugger;
       })
     );
   }
@@ -56,23 +57,6 @@ export class ToDoListPageComponent implements OnInit, OnDestroy, AfterViewInit {
       this.dataService.delete(id).subscribe(() => {
         this.items = this.items.filter((elem) => elem.id !== id);
       })
-    );
-  }
-
-  onImageItem(imageItem: Item) {
-    let propertyToChange: Partial<Item> = {
-      imageDataUrl: imageItem.imageDataUrl,
-    };
-    this.subs.add(
-      this.dataService
-        .UpdateImage(imageItem, propertyToChange)
-        .subscribe((item) => {
-          this.items = this.items.map((data) =>
-            data.imageDataUrl !== item.imageDataUrl && data.id === item.id
-              ? item
-              : data
-          );
-        })
     );
   }
 
