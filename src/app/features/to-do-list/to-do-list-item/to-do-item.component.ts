@@ -62,7 +62,7 @@ export class ToDoListItemComponent implements OnChanges {
   onSave() {
     this.update.emit({
       ...this.form.value,
-      imageDataUrl: this.canvasData?.imageDataUrl,
+      imageDataUrl: this.canvasData?.canvasElement.nativeElement.toDataURL('image/png'),
     });
   }
 

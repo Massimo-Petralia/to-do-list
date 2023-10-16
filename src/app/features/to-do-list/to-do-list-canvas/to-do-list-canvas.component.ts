@@ -47,7 +47,6 @@ export class ToDoListCanvasComponent implements AfterViewInit {
       });
       canvas.addEventListener('mouseup', () => {
         isDrawing = false;
-        this.imageDataUrl = canvas.toDataURL('image/png');
       });
     }
   }
