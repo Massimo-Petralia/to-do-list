@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Item } from 'src/app/models/item';
 import { DataService } from 'src/app/service/data.service';
 import { Subscription } from 'rxjs';
@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './to-do-list-page.component.html',
   styleUrls: ['./to-do-list-page.component.scss'],
 })
-export class ToDoListPageComponent implements OnInit, OnDestroy, AfterViewInit {
+export class ToDoListPageComponent implements OnInit, OnDestroy {
   items: Item[] = [];
 
   subs = new Subscription();
@@ -20,7 +20,6 @@ export class ToDoListPageComponent implements OnInit, OnDestroy, AfterViewInit {
       this.dataService.getItems().subscribe((items) => (this.items = items))
     );
   }
-  ngAfterViewInit(): void {}
 
   onAdd(data: Item) {
     this.subs.add(
